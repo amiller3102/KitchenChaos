@@ -1,0 +1,32 @@
+name: Update Progress
+
+on:
+  push:
+    paths:
+      - progress.txt
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * *' # every day at 12:00 UTC
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run script
+        run: |
+          python update_readme.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "Update progress bar" || echo "No changes"
+          git push
