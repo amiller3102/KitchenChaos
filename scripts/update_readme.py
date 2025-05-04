@@ -2,7 +2,7 @@ import datetime
 
 # --- CONFIGURATION ---
 video_length_str = "10:49:40"
-progress_file = "progress.txt"
+progress_file = "scripts/progress.txt"
 readme_file = "README.md"
 progress_bar_blocks = 30
 start_marker = "<!--progress-start-->"
