@@ -1,7 +1,7 @@
 import datetime
 
 # --- CONFIGURATION ---
-video_length_str = "4:39:39"
+video_length_str = "10:49:40"
 progress_file = "progress.txt"
 readme_file = "README.md"
 progress_bar_blocks = 30
